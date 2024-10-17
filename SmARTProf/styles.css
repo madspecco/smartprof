@@ -27,7 +27,7 @@ input {
     box-sizing: border-box; /* Prevent padding from affecting width */
 }
 
-button, .link-btn {
+.login-page-buttons, .register-page-buttons {
     width: 100%;
     padding: 10px;
     border-radius: 4px;
@@ -36,26 +36,23 @@ button, .link-btn {
     box-sizing: border-box;
 }
 
-button {
+#login-button {
     background-color: #4CAF50;
     color: white;
     border: none;
 }
 
-button:hover {
-    background-color: #45a049;
-}
-
-.link-btn {
+#create-acc-button {
     background-color: transparent;
     color: #007bff;
     border: 1px solid #007bff;
     text-decoration: none;
 }
 
-.link-btn:hover {
-    background-color: #007bff;
+#register-button {
+    background-color: #4CAF50;
     color: white;
+    border: none;
 }
 
 .language-container {
@@ -71,22 +68,24 @@ button:hover {
 }
 
 .language-btn {
-    background-color: #4CAF50;
-    color: white;
+    /* background-color: #4CAF50; */
+    /* color: white; */
     border: none;
-    border-radius: 4px;
-    padding: 10px 15px;
+    /* border-radius: 4px; */
+    /* padding: 10px 15px; */
     cursor: pointer;
     display: flex;
     align-items: center;
 }
 
 .language-btn:hover {
-    background-color: #45a049;
+    /* background-color: #45a049; */
+    width: 220px;
 }
 
 .flag-icon {
-    width: 20px; /* Adjust the width of the flag icon */
+    width: 200px; /* Adjust the width of the flag icon */
     height: auto; /* Maintain aspect ratio */
     margin-right: 5px; /* Space between icon and text */
+    
 }
