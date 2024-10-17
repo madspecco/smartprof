@@ -14,8 +14,8 @@
         
         <div class="labels-container">
             <div class="left-labels">
-                <label id="word-label">Word: ____</label>
-                <label id="context-label">Context: This is an example sentence.</label>
+                <label id="word-label">Word: {{ word if word else "No word found." }}</label>
+                <label id="context-label">Context: {{ context if context else  "No context available." }}</label>
             </div>
             <div class="right-labels">
                 <label id="round-label">Round: 1</label>

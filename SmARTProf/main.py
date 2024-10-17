@@ -99,7 +99,35 @@ def select_langauge():
 
 @app.route('/main-game.html')
 def main_game():
-    return render_template('main-game.html')
+    language = request.args.get('language')  # Retrieve selected language from query params
+    if language:
+        print(language)
+
+        # Connect to the database
+        connection = create_connection()
+        cursor = connection.cursor()
+
+        try:
+            # Randomly select a word based on the selected language
+            query = f"SELECT {language}, context_{language} FROM words ORDER BY RAND() LIMIT 1;"
+            cursor.execute(query)
+            result = cursor.fetchone()
+
+            if result:
+                word = result[0]
+                context = result[1]
+                print(f"Random word: {word}, Context: {context}")  # Print the selected word and its context
+            else:
+                print("No word found.")
+
+        except mysql.connector.Error as err:
+            print(f"Error: {err}")
+        finally:
+            # Close the cursor and connection
+            cursor.close()
+            connection.close()
+
+    return render_template('main-game.html', word=word, context=context)
 
 
 if __name__ == '__main__':
