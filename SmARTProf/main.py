@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 import mysql.connector
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key_here"  # Needed for flashing messages
@@ -53,8 +53,42 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        # Handle registration logic here
-        pass
+        username = request.form['username']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+
+        # Check if passwords match
+        if password != confirm_password:
+            flash("Passwords do not match!")
+            return redirect(url_for('register'))
+
+        # Check username validity
+        if len(username) < 5 or len(username) > 10:
+            flash("Username must be between 5 and 10 characters long!")
+            return redirect(url_for('register'))
+
+        # Hash the password for security
+        hashed_password = generate_password_hash(password)
+
+        # Connect to the database
+        connection = create_connection()
+        cursor = connection.cursor()
+
+        try:
+            # Insert the new user into the users table
+            cursor.execute("INSERT INTO users (username, password) VALUES (%s, %s)", (username, hashed_password))
+            connection.commit()  # Commit the transaction
+
+            flash("Registration successful! You can now log in.")
+            return redirect(url_for('login'))  # Redirect to the login page after registration
+        except mysql.connector.Error as err:
+            flash(f"Error: {err}")
+            return redirect(url_for('register'))
+        finally:
+            # Close the cursor and connection
+            cursor.close()
+            connection.close()
+
     return render_template('register.html')
 
 
