@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmARTProf Game</title>
+    <link rel="icon" type="image/x-icon" href="./images/etch-icon.png">
+    <link rel="stylesheet" href="styles/main-game-styles.css">
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/drawing.js" defer></script>
+</head>
+<body>
+    <div class="game-container">
+        <h2 id="title">SmARTProf Game</h2>
+        
+        <div class="labels-container">
+            <div class="left-labels">
+                <label id="word-label">Word: ____</label>
+                <label id="context-label">Context: This is an example sentence.</label>
+            </div>
+            <div class="right-labels">
+                <label id="round-label">Round: 1</label>
+                <label id="score-label">Score: 0</label>
+            </div>
+        </div>
+
+        <div id="squareContainer" draggable="false">
+            <!-- 30x30 divs created in JS -->
+        </div>
+
+        <div class="settings-buttons">
+            <button id="erasebtn" class="erase-button">Erase</button>
+            <button id="clearbtn" class="clear-button">Clear</button>
+        </div>
+
+        <button class="finish-button" onclick="finishRound()">Finish</button>
+
+        <div class="feedback-container">
+            <label id="feedback-label">Feedback will be shown here.</label>
+        </div>
+
+        <div class="next-round-container">
+            <button class="next-round-button" onclick="nextRound()">Next Round</button>
+        </div>
+    </div>
+</body>
+</html>

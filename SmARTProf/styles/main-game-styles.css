@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+/* Game style */
+
+.game-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Increased width for better layout */
+    text-align: left; /* Align text to the left */
+    box-sizing: border-box;
+    margin: auto; /* Center the game container */
+}
+
+.labels-container {
+    display: flex;
+    justify-content: space-between; /* Space out left and right labels */
+}
+
+.left-labels, .right-labels {
+    display: flex;
+    flex-direction: column; /* Stack labels vertically */
+}
+
+/* Drawing board styles */
+#squareContainer {
+    display: grid;
+    width: 300px; /* Set width for drawing board */
+    height: 300px; /* Set height for drawing board */
+    grid-template-columns: repeat(30, 1fr); /* 30 columns */
+    grid-template-rows: repeat(30, 1fr); /* 30 rows */
+    background-color: white;
+    border: solid 1px #E0A96D; /* Border for the drawing board */
+    margin: 20px auto; /* Center the drawing board */
+}
+
+/* Individual square styles */
+.squares {
+    border: solid 1px; 
+    border-color: #DDC3A5; /* Color for the squares */
+    background-color: transparent; /* Background color for each square */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+.finish-button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 10px; /* Space below the finish button */
+}
+
+.finish-button:hover {
+    background-color: #45a049; /* Change background color on hover */
+}
+
+.feedback-container {
+    margin-bottom: 20px; /* Space above feedback label */
+}
+
+.next-round-container {
+    display: flex;
+    justify-content: flex-end; /* Align next round button to the right */
+}
+
+.next-round-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.next-round-button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
+
+.settings-buttons {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the buttons horizontally */
+    margin: 20px 0; /* Add margin to create space above and below */
+}
+
+.erase-button, .clear-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.settings-buttons button {
+    margin: 0 10px;
+}
+
+.toggled {
+    background-color: #ff4d4d;
+    color: white;
+}

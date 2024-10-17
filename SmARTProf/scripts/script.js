@@ -23,6 +23,5 @@ function register() {
 }
 
 function selectLanguage(language) {
-    alert(`You selected ${language}!`);
-    // Add logic to proceed with the selected language
+    window.location.href = "main-game.html";
 }
