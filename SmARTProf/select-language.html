@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmARTProf - Select Language</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="language-container">
+        <h2>Select a Language</h2>
+        <div class="button-row">
+            <button class="language-btn" onclick="selectLanguage('romanian')">
+                <img src="path/to/romanian-flag.png" alt="English Flag" class="flag-icon">
+                Romanian
+            </button>
+            <button class="language-btn" onclick="selectLanguage('spanish')">
+                <img src="path/to/spanish-flag.png" alt="Spanish Flag" class="flag-icon">
+                Spanish
+            </button>
+            <button class="language-btn" onclick="selectLanguage('french')">
+                <img src="path/to/french-flag.png" alt="French Flag" class="flag-icon">
+                French
+            </button>
+            <button class="language-btn" onclick="selectLanguage('german')">
+                <img src="path/to/german-flag.png" alt="German Flag" class="flag-icon">
+                German
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function selectLanguage(language) {
+            alert(`You selected ${language}!`);
+            // Add logic to proceed with the selected language
+        }
+    </script>
+</body>
+</html>
