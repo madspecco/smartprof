@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Clear the canvas before drawing
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+        // Fill the canvas with white first
+        ctx.fillStyle = 'white'; // Set the fill color to white
+        ctx.fillRect(0, 0, canvas.width, canvas.height); // Fill the entire canvas
+
         // Loop through each square to check its color
         for (let i = 0; i < squares.length; i++) {
             const square = squares[i];
