@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmARTProf - Select Language</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/select-language-styles.css') }}">
+</head>
+<body>
+    <div class="language-container">
+        <h2>Select a Language</h2>
+        <div class="button-row">
+            <a href="{{ url_for('main_game') }}">
+                <img src="{{ url_for('static', filename='res/flags/romania-flag.png') }}" alt="Romanian" class="flag-icon">
+            </a>
+
+            <a href="{{ url_for('main_game') }}">
+                <img src="{{ url_for('static', filename='res/flags/spain-flag.png') }}" alt="Spanish" class="flag-icon">
+            </a>
+
+            <a href="{{ url_for('main_game') }}">
+                <img src="{{ url_for('static', filename='res/flags/france-flag.png') }}" alt="French" class="flag-icon">
+            </a>
+
+            <a href="{{ url_for('main_game') }}">
+                <img src="{{ url_for('static', filename='res/flags/italy-flag.png') }}" alt="Italian" class="flag-icon">
+            </a>
+        </div>
+    </div>
+</body>
+</html>

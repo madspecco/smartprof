@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmARTProf Game</title>
     <link rel="icon" type="image/x-icon" href="./images/etch-icon.png">
-    <link rel="stylesheet" href="styles/main-game-styles.css">
-    <script src="scripts/script.js" defer></script>
-    <script src="scripts/drawing.js" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main-game-styles.css') }}">
+    <script src="{{ url_for('static', filename='scripts/drawing.js') }}" defer></script>
 </head>
 <body>
     <div class="game-container">

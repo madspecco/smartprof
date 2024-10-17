@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmARTProf Register</title>
-    <link rel="stylesheet" href="styles/register-styles.css">
-    <script src="scripts/script.js" defer></script>
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/register-styles.css') }}">
 </head>
 <body>
     <div class="register-container">
@@ -14,7 +12,7 @@
         <input type="text" id="username" placeholder="Username" required>
         <input type="password" id="password" placeholder="Password" required>
         <input type="password" id="confirm-password" placeholder="Confirm Password" required>
-        <button class="register-page-buttons" id="register-button" onclick="register()">Register</button>
+        <button class="register-page-buttons" id="register-button">Register</button>
     </div>
 </body>
 </html>

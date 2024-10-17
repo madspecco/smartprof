@@ -1,8 +1,6 @@
-function login() {
-    // validation of login
-    // if successful go to select-language page
-    window.location.href = "select-language.html";
-}
+
+
+
 
 function goToRegister() {
     window.location.href = "register.html";

@@ -43,8 +43,22 @@ input {
 }
 
 #create-acc-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
     background-color: transparent;
     color: #007bff;
     border: 1px solid #007bff;
     text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Hover effects for the create account link */
+#create-acc-button:hover {
+    background-color: #007bff; /* Change background on hover */
+    color: white; /* Change text color on hover */
 }
