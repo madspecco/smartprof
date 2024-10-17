@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+import base64
+
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 import mysql.connector
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -128,6 +130,24 @@ def main_game():
             connection.close()
 
     return render_template('main-game.html', word=word, context=context)
+
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    data = request.get_json()
+    if 'image' not in data:
+        return jsonify({"error": "No image data provided."}), 400
+
+    image_data = data['image']
+
+    # Decode the image data
+    header, encoded = image_data.split(',', 1)
+    try:
+        with open('drawing.png', 'wb') as f:
+            f.write(base64.b64decode(encoded))
+        return jsonify({"message": "Image saved successfully!"})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == '__main__':

@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="./images/etch-icon.png">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main-game-styles.css') }}">
     <script src="{{ url_for('static', filename='scripts/drawing.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='scripts/download-drawing.js') }}" defer></script>
 </head>
 <body>
     <div class="game-container">
@@ -26,13 +27,14 @@
         <div id="squareContainer" draggable="false">
             <!-- 30x30 divs created in JS -->
         </div>
+        <canvas id="drawingCanvas" width="300" height="300" style="display: none;"></canvas>
 
         <div class="settings-buttons">
             <button id="erasebtn" class="erase-button">Erase</button>
             <button id="clearbtn" class="clear-button">Clear</button>
         </div>
 
-        <button class="finish-button" onclick="finishRound()">Finish</button>
+        <button class="finish-button">Finish</button>
 
         <div class="feedback-container">
             <label id="feedback-label">Feedback will be shown here.</label>
