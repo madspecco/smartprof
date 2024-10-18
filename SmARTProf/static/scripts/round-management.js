@@ -1,9 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     const nextRoundButton = document.querySelector('.next-round-button');
+    const submitButton = document.querySelector('.finish-button');
     const feedbackLabel = document.getElementById('feedback-label');
     const roundLabel = document.getElementById('round-label');
     const scoreLabel = document.getElementById('score-label');
     const squareContainer = document.getElementById('squareContainer');
+
+    const MAX_ROUNDS = 5;
 
     function updateFeedbackLabel(message) {
         if (feedbackLabel) {
@@ -27,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (data.word) {
                     document.getElementById('word-label').innerText = `Word: ${data.word}`;
                     document.getElementById('context-label').innerText = `Context: ${data.context}`;
-                    // Reset any necessary game state here, e.g., drawing, etc.
                 } else {
                     document.getElementById('word-label').innerText = "No word found.";
                     document.getElementById('context-label').innerText = "No context available.";
@@ -38,9 +40,19 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
+    // Function to determine the qualitative feedback based on score
+    function evaluateScore(score) {
+        if (score <= 10) {
+            updateFeedbackLabel("You need more practice. Game is over, please restart.");
+        } else if (score > 10 && score < 25) {
+            updateFeedbackLabel("Pretty good, but you still need training.  Game is over, please restart.");
+        } else if (score >= 25) {
+            updateFeedbackLabel("Nice! Game is over, please restart.");
+        }
+    }
+
     // Function to increment the round and manage the score
     function updateRoundAndScore() {
-        // Check if the feedback label is empty
         if (!feedbackLabel || feedbackLabel.textContent.trim() === "") {
             console.warn("Cannot proceed to the next round: Feedback is empty.");
             updateFeedbackLabel("Please submit your drawing before proceeding."); // Notify the user
@@ -52,14 +64,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Check the feedback text
         if (feedbackLabel.textContent.trim() === "Correct!") {
-            // Increment the score by 5 if the feedback is "Correct!"
-            currentScore += 5;
+            currentScore += 5; // Increment the score by 5 if the feedback is "Correct!"
         }
 
-        // Increment the round regardless of the feedback
+        // Check if current round has reached the maximum
+        if (currentRound >= MAX_ROUNDS) {
+            evaluateScore(currentScore); // Evaluate score and provide feedback at game over
+            nextRoundButton.disabled = true;
+            submitButton.disabled = true;
+            return;
+        }
+
+        // Increment the round
         currentRound += 1;
 
-        // Update the Round and Score labels with the correct format
+        // Update the Round and Score labels
         roundLabel.innerText = `R:${currentRound}`;
         scoreLabel.innerText = `S:${currentScore}`;
 
@@ -79,8 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function clearBoard() {
         const squares = squareContainer.getElementsByClassName('squares');
         for (let square of squares) {
-            // Reset the background color or any other property to clear the square
-            square.style.backgroundColor = ''; // Set this to your default color (e.g., white or transparent)
+            square.style.backgroundColor = ''; // Reset the square background color
         }
     }
 
