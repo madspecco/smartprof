@@ -39,6 +39,12 @@ body {
     flex-direction: column; /* Stack labels vertically */
 }
 
+.right-labels label {
+    display: inline; /* Keep them in a single line */
+    margin: 0; /* Remove any default margins */
+}
+
+
 /* Drawing board styles */
 #squareContainer {
     display: grid;
@@ -120,6 +126,6 @@ body {
 }
 
 .toggled {
-    background-color: #FF6500;
+    background-color: #0B192C;
     color: white;
 }
