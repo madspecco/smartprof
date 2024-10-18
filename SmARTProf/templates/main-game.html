@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main-game-styles.css') }}">
     <script src="{{ url_for('static', filename='scripts/drawing.js') }}" defer></script>
     <script src="{{ url_for('static', filename='scripts/download-drawing.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='scripts/round-management.js') }}" defer></script>
 </head>
 <body>
     <div class="game-container">
@@ -41,7 +42,7 @@
         </div>
 
         <div class="next-round-container">
-            <button class="next-round-button" onclick="nextRound()">Next Round</button>
+            <button class="next-round-button">Next Round</button>
         </div>
     </div>
 </body>

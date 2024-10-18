@@ -98,6 +98,9 @@ def register():
 
 @app.route('/select-language')
 def select_langauge():
+    language = request.form.get('language')
+    if language:
+        session['selected_language'] = language
     return render_template('select-language.html')
 
 
@@ -180,6 +183,43 @@ def upload():
     except Exception as e:
         print(f"Prediction error: {str(e)}")  # Log the error
         return jsonify({"error": str(e)}), 500
+
+
+@app.route('/next-word', methods=['GET'])
+def next_word():
+    # Get language from URL query parameters
+    language = request.args.get('language')
+
+    if language:
+        print(f"Selected language from URL: {language}")
+
+        connection = create_connection()
+        cursor = connection.cursor()
+
+        try:
+            query = f"SELECT {language}, context_{language} FROM words ORDER BY RAND() LIMIT 1;"
+            cursor.execute(query)
+            result = cursor.fetchone()
+
+            if result:
+                word = result[0]
+                context = result[1]
+                session['correct_word'] = word
+                print(f"Random word fetched: {word}, Context: {context}")
+            else:
+                print("No word found.")
+                return jsonify({'error': 'No word found for the selected language.'}), 404
+        except mysql.connector.Error as err:
+            print(f"Error: {err}")
+            return jsonify({'error': 'Database error occurred.'}), 500
+        finally:
+            cursor.close()
+            connection.close()
+    else:
+        print("No language provided in the URL.")
+        return jsonify({'error': 'No language provided.'}), 400  # Handle case where language is not provided
+
+    return jsonify({'word': word, 'context': context})
 
 
 if __name__ == '__main__':
