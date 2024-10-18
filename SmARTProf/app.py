@@ -154,9 +154,9 @@ def upload():
         print(f"Predicted class index: {predicted_class}")
 
         # Delete the image after prediction
-        if os.path.exists(PATH_TO_DRAWING):
-            os.remove(PATH_TO_DRAWING)
-            print(f"Deleted file: {PATH_TO_DRAWING}")
+        # if os.path.exists(PATH_TO_DRAWING):
+        #     os.remove(PATH_TO_DRAWING)
+        #     print(f"Deleted file: {PATH_TO_DRAWING}")
 
         return jsonify({"message": "Image saved successfully!",
                         "predicted_class": predicted_class})
