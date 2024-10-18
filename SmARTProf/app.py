@@ -1,8 +1,12 @@
 import base64
+import os
 
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 import mysql.connector
 from werkzeug.security import check_password_hash, generate_password_hash
+from predict_image import get_predicted_class
+
+PATH_TO_DRAWING = "C://repos//smartprof//SmARTProf//drawing.png"
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key_here"  # Needed for flashing messages
@@ -145,8 +149,19 @@ def upload():
     try:
         with open('drawing.png', 'wb') as f:
             f.write(base64.b64decode(encoded))
-        return jsonify({"message": "Image saved successfully!"})
+
+        predicted_class = int(get_predicted_class(PATH_TO_DRAWING))
+        print(f"Predicted class index: {predicted_class}")
+
+        # Delete the image after prediction
+        if os.path.exists(PATH_TO_DRAWING):
+            os.remove(PATH_TO_DRAWING)
+            print(f"Deleted file: {PATH_TO_DRAWING}")
+
+        return jsonify({"message": "Image saved successfully!",
+                        "predicted_class": predicted_class})
     except Exception as e:
+        print(f"Prediction error: {str(e)}")  # Log the error
         return jsonify({"error": str(e)}), 500
 
 
