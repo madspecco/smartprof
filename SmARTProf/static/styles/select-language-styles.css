@@ -40,5 +40,5 @@ body {
     width: 200px; /* Adjust the width of the flag icon */
     height: auto; /* Maintain aspect ratio */
     margin-right: 5px; /* Space between icon and text */
-    
+    border-radius: 10px; /* Add rounded corners */
 }

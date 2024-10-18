@@ -4,12 +4,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #0B192C;
     margin: 0;
 }
 
 .login-container {
-    background-color: #fff;
+    background-color: #1E3E62;;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -22,9 +22,10 @@ input {
     width: calc(100% - 20px); /* Subtract padding to ensure full width */
     padding: 10px;
     margin: 8px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #FF6500;
     border-radius: 4px;
     box-sizing: border-box; /* Prevent padding from affecting width */
+    color: #0B192C;
 }
 
 .login-page-buttons, .register-page-buttons {
@@ -37,9 +38,14 @@ input {
 }
 
 #login-button {
-    background-color: #4CAF50;
+    background-color: #FF6500;
     color: white;
     border: none;
+    transition: background-color 0.3s;
+}
+
+#login-button:hover {
+    background-color: #e55c00; /* Darker orange on hover */
 }
 
 #create-acc-button {
@@ -50,8 +56,8 @@ input {
     cursor: pointer;
     margin-top: 10px;
     background-color: transparent;
-    color: #007bff;
-    border: 1px solid #007bff;
+    color: #FF6500;
+    border: 1px solid #FF6500;
     text-decoration: none;
     text-align: center;
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
@@ -59,6 +65,6 @@ input {
 
 /* Hover effects for the create account link */
 #create-acc-button:hover {
-    background-color: #007bff; /* Change background on hover */
+    background-color: #FF6500; /* Change background on hover */
     color: white; /* Change text color on hover */
 }
