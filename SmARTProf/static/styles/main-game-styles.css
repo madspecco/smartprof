@@ -63,6 +63,7 @@ body {
     border-color: #FF6500; /* Color for the squares */
     background-color: transparent; /* Background color for each square */
     cursor: pointer; /* Change cursor on hover */
+    draggable: false;
 }
 
 .finish-button {

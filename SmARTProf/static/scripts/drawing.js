@@ -31,6 +31,7 @@ function createGrid(size) {
     for (let i = 0; i < size * size; i++) {
         const square = document.createElement('div');
         square.classList.add('squares');
+        square.setAttribute('draggable', 'false');
 
         square.addEventListener('mouseover', fill);
         square.addEventListener('mousedown', fill);
