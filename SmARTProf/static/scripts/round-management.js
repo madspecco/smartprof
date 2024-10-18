@@ -67,6 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
             currentScore += 5; // Increment the score by 5 if the feedback is "Correct!"
         }
 
+        scoreLabel.innerText = `S:${currentScore}`;
+
         // Check if current round has reached the maximum
         if (currentRound >= MAX_ROUNDS) {
             evaluateScore(currentScore); // Evaluate score and provide feedback at game over

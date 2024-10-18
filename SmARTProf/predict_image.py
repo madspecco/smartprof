@@ -4,7 +4,7 @@ import numpy as np
 
 
 # Load the saved model
-model = models.load_model('models//doody_v2.keras')
+model = models.load_model('models//doody_v3.keras')
 
 
 def prepare_image(image_path):
