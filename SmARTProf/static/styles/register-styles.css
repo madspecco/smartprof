@@ -4,12 +4,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #0B192C;
     margin: 0;
 }
 
 .register-container {
-    background-color: #fff;
+    background-color: #1E3E62;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -22,8 +22,10 @@ input {
     width: calc(100% - 20px); /* Subtract padding to ensure full width */
     padding: 10px;
     margin: 8px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #FF6500;
     border-radius: 4px;
+    background-color: #fff;
+    color: #0B192C;
     box-sizing: border-box; /* Prevent padding from affecting width */
 }
 
@@ -37,7 +39,8 @@ input {
 }
 
 #register-button {
-    background-color: #4CAF50;
+    background-color: #FF6500;
     color: white;
     border: none;
+    transition: background-color 0.3s;
 }
