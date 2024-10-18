@@ -1,26 +1,29 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Press Start 2P', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #0B192C;
     margin: 0;
+    color: #FF6500;
 }
 
 #title {
     text-align: center;
     margin-bottom: 20px;
+    color: #FF6500;
+    font-family: 'Press Start 2P', cursive;
 }
 
 /* Game style */
 
 .game-container {
-    background-color: #fff;
+    background-color: #1E3E62;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 460px;
+    width: 580px;
     text-align: left;
     box-sizing: border-box;
     margin: auto; /* Center the game container */
@@ -39,10 +42,10 @@ body {
 /* Drawing board styles */
 #squareContainer {
     display: grid;
-    width: 300px; /* Set width for drawing board */
-    height: 300px; /* Set height for drawing board */
-    grid-template-columns: repeat(30, 1fr); /* 30 columns */
-    grid-template-rows: repeat(30, 1fr); /* 30 rows */
+    width: 350px; /* Set width for drawing board */
+    height: 350px; /* Set height for drawing board */
+    grid-template-columns: repeat(32, 1fr); /* 30 columns */
+    grid-template-rows: repeat(32, 1fr); /* 30 rows */
     background-color: white;
     border: solid 1px #E0A96D; /* Border for the drawing board */
     margin: 20px auto; /* Center the drawing board */
@@ -51,24 +54,26 @@ body {
 /* Individual square styles */
 .squares {
     border: solid 1px; 
-    border-color: #DDC3A5; /* Color for the squares */
+    border-color: #FF6500; /* Color for the squares */
     background-color: transparent; /* Background color for each square */
     cursor: pointer; /* Change cursor on hover */
 }
 
 .finish-button {
-    width: 100%;
-    background-color: #4CAF50;
+    display: block;
+    width: 50%;
+    background-color: #FF6500;
     color: white;
     border: none;
     border-radius: 4px;
     padding: 10px;
     cursor: pointer;
-    margin-bottom: 10px; /* Space below the finish button */
+    margin: 10px auto;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .finish-button:hover {
-    background-color: #45a049; /* Change background color on hover */
+    background-color: #e55c00; /* Change background color on hover */
 }
 
 .feedback-container {
@@ -81,16 +86,17 @@ body {
 }
 
 .next-round-button {
-    background-color: #007bff;
+    background-color: #FF6500;
     color: white;
     border: none;
     border-radius: 4px;
     padding: 10px;
     cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .next-round-button:hover {
-    background-color: #0056b3; /* Change background color on hover */
+    background-color: #e55c00; /* Change background color on hover */
 }
 
 .settings-buttons {
@@ -100,12 +106,13 @@ body {
 }
 
 .erase-button, .clear-button {
-    background-color: #007bff;
+    background-color: #FF6500;
     color: white;
     border: none;
     border-radius: 4px;
     padding: 10px;
     cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .settings-buttons button {
@@ -113,6 +120,6 @@ body {
 }
 
 .toggled {
-    background-color: #ff4d4d;
+    background-color: #FF6500;
     color: white;
 }

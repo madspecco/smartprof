@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmARTProf Game</title>
+    <title>SKETCH-8I</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./images/etch-icon.png">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main-game-styles.css') }}">
     <script src="{{ url_for('static', filename='scripts/drawing.js') }}" defer></script>
@@ -12,7 +13,7 @@
 </head>
 <body>
     <div class="game-container">
-        <h2 id="title">SmARTProf Game</h2>
+        <h2 id="title">SKETCH-8I</h2>
         
         <div class="labels-container">
             <div class="left-labels">
@@ -20,8 +21,8 @@
                 <label id="context-label">Context: {{ context if context else  "No context available." }}</label>
             </div>
             <div class="right-labels">
-                <label id="round-label">Round: 1</label>
-                <label id="score-label">Score: 0</label>
+                <label id="round-label">R:1</label>
+                <label id="score-label">S:0</label>
             </div>
         </div>
 

@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Press Start 2P', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,6 +27,12 @@ input {
     background-color: #fff;
     color: #0B192C;
     box-sizing: border-box; /* Prevent padding from affecting width */
+    font-family: 'Press Start 2P', cursive;
+}
+
+input::placeholder {
+    color: #FF6500; /* Change placeholder text color */
+    opacity: 0.7; /* Slightly transparent for a softer look */
 }
 
 .register-page-buttons {
@@ -36,6 +42,7 @@ input {
     cursor: pointer;
     margin-top: 10px;
     box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
 }
 
 #register-button {

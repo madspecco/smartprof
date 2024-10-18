@@ -60,8 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
         currentRound += 1;
 
         // Update the Round and Score labels with the correct format
-        roundLabel.textContent = `ROUND: ${currentRound}`;
-        scoreLabel.textContent = `SCORE: ${currentScore}`;
+        roundLabel.textContent = `R: ${currentRound}`;
+        scoreLabel.textContent = `S: ${currentScore}`;
 
         // Clear the feedback label for the next round
         feedbackLabel.textContent = '';

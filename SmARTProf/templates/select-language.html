@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmARTProf - Select Language</title>
+    <title>SKETCH-8I - Select Language</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/select-language-styles.css') }}">
 </head>
 <body>
     <div class="language-container">
-        <h2>Select a Language</h2>
+        <h2 id="title">Select a Language</h2>
         <div class="button-row">
             <a href="{{ url_for('main_game', language='romanian') }}" class="language-link">
                 <img src="{{ url_for('static', filename='res/flags/romania-flag.png') }}" alt="Romanian" class="flag-icon">
