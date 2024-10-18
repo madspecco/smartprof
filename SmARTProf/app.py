@@ -5,8 +5,8 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 import mysql.connector
 from werkzeug.security import check_password_hash, generate_password_hash
 from predict_image import get_predicted_class
+from config import PATH_TO_DRAWING
 
-PATH_TO_DRAWING = "C://repos//smartprof//SmARTProf//drawing.png"
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key_here"  # Needed for flashing messages
