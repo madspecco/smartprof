@@ -2,6 +2,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById('drawingCanvas');
     const ctx = canvas.getContext('2d');
 
+    // Function to update the feedback label with a provided message
+    function updateFeedbackLabel(message) {
+        const feedbackLabel = document.getElementById('feedback-label');
+        if (feedbackLabel) {
+            feedbackLabel.textContent = message;
+            console.log("Feedback updated:", message);
+        } else {
+            console.log("Feedback label not found.");
+        }
+    }
+
+    // Function to get the image data from the canvas as a base64-encoded string
+    function getImageData() {
+        if (!canvas) {
+            console.error("Canvas element not found.");
+            return null;
+        }
+        return canvas.toDataURL('image/png'); // Get the image data as base64
+    }
+
     // Function to save the drawing based on the grid squares
     function saveDrawing() {
         const squareContainer = document.getElementById('squareContainer');
@@ -31,28 +51,51 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Now, send the canvas image to the server
-        sendDrawingToServer();
+        sendRequestAndUpdateFeedback();
     }
 
-    function sendDrawingToServer() {
-        const dataURL = canvas.toDataURL('image/png');
+    // Function to send the image data to the server and update feedback
+    function sendRequestAndUpdateFeedback() {
+        // Get the image data
+        const imageData = getImageData();
+        if (!imageData) {
+            updateFeedbackLabel("Error: Unable to capture image data.");
+            return; // Exit if no image data is available
+        }
 
+        // Prepare the request payload
+        const requestData = {
+            image: imageData // Include the image data in the request
+        };
+
+        // Send the request to the server
         fetch('/upload', {
             method: 'POST',
-            body: JSON.stringify({ image: dataURL }),
             headers: {
-                'Content-Type': 'application/json'
-            }
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestData),
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Success:', data);
+            if (data.feedback) {
+                // Update the feedback label with the server's response
+                updateFeedbackLabel(data.feedback);
+            } else if (data.error) {
+                // Display the error message
+                updateFeedbackLabel("Error: " + data.error);
+            }
         })
-        .catch((error) => {
-            console.error('Error:', error);
+        .catch(error => {
+            // Handle network errors or other issues
+            console.error("Request failed:", error);
+            updateFeedbackLabel("An error occurred during the request.");
         });
     }
 
     // To trigger the saveDrawing function when the finish button is clicked
-    document.querySelector('.finish-button').addEventListener('click', saveDrawing);
+    document.querySelector('.finish-button').addEventListener('click', () => {
+        console.log("Finish button clicked.");
+        saveDrawing();
+    });
 });

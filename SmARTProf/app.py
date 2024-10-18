@@ -175,9 +175,8 @@ def upload():
             feedback = "Invalid prediction."
 
         print(feedback)
+        return jsonify({"feedback": feedback})
 
-        # Store feedback in session and redirect to main game
-        return redirect(url_for('main_game'))  # Redirect to main game after processing
     except Exception as e:
         print(f"Prediction error: {str(e)}")  # Log the error
         return jsonify({"error": str(e)}), 500
